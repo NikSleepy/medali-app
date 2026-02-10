@@ -1,0 +1,12 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M44.625 170H39C26.8497 170 17 160.15 17 148V41C17 28.8497 26.8497 19 39 19H216C228.15 19 238 28.8497 238 41V94.5V132.25V138.5" stroke="#495057" stroke-width="11" stroke-linecap="round"/>
+<path d="M138.069 67H193.069" stroke="#495057" stroke-width="11" stroke-linecap="round"/>
+<path d="M138.069 93H176.069" stroke="#495057" stroke-width="11" stroke-linecap="round"/>
+<path d="M138.069 119H212.569" stroke="#495057" stroke-width="11" stroke-linecap="round"/>
+<path d="M44.625 170H39C26.8497 170 17 179.85 17 192V216C17 228.15 26.8497 238 39 238H127.5H138.55" stroke="#495057" stroke-width="11" stroke-linecap="round"/>
+<path d="M47.7477 204H116.93" stroke="#495057" stroke-width="11" stroke-linecap="round"/>
+<path d="M74.6522 170L128.461 170" stroke="#495057" stroke-width="11" stroke-linecap="round" stroke-dasharray="27 24"/>
+<rect x="49.6696" y="55" width="56.6913" height="76" rx="16" stroke="#495057" stroke-width="11"/>
+<circle cx="192.631" cy="190.5" r="42" stroke="#495057" stroke-width="11"/>
+<path d="M176.131 191.679L186.039 201.588C186.43 201.978 187.063 201.978 187.453 201.588L210.041 179" stroke="#495057" stroke-width="11" stroke-linecap="round"/>
+</svg>
