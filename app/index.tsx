@@ -1,14 +1,16 @@
 import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import Info from "./components/home/Info";
 import Menu from "./components/home/Menu";
 import ServiceSection from "./components/home/ServiceSection";
+import Navbar from "./components/route/navbar";
 
 
 export default function Index() {
   
   return (
+    <>
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       {/* Header section */}
       <View style={styles.header}>
@@ -17,14 +19,14 @@ export default function Index() {
             <Image source={require("../assets/images/company-icon.png")} style={{ width: "100%", height: "50%", resizeMode: "contain" }} /> 
           </View>
           <View style={{ width: "30%", height: "50%", alignItems: "center", justifyContent: "center"}}>
-            <Pressable
-              onPress={() => router.push('/about')}
+            <TouchableOpacity
+              onPress={() => router.push('/login')}
               style={styles.buttonSignIn}
             >
               <Text style={{ color: '#030303ff', fontSize: 16 }}>
                 Sign In
               </Text>
-            </Pressable>
+            </TouchableOpacity>
           </View>
         </ImageBackground>
       </View>
@@ -54,8 +56,12 @@ export default function Index() {
       </View>
 
       <ServiceSection />
+      
     </ScrollView>
-    
+      <View style={styles.navWrapper}>
+        <Navbar />
+      </View>
+    </>
   );
 }
 
@@ -63,6 +69,7 @@ export default function Index() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        marginBottom: 90,
     },
     // Style Header section
     header: {
@@ -100,4 +107,12 @@ const styles = StyleSheet.create({
         paddingVertical: 10,
         paddingHorizontal: 20,
     },
+
+    navWrapper: {
+      position: "absolute",
+      bottom: 0,
+      left: 0,
+      right: 0,
+    }
+
 });
