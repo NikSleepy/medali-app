@@ -7,38 +7,6 @@ import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 
 const { width } = Dimensions.get("window");
 
-// const Info = () => {
-//     const [ slider, setSlider ] = useState<any>([]);
-    
-//       useEffect(() => {
-//         apiFetch("home/list_banner", {}).then((res: any) => {
-//           setSlider(res.data);
-//         }).catch((err: any) => {
-//           console.log(err);
-//         })
-//         console.log(slider[0]?.img_url);
-//       }, []);
-//   return (
-//     <>
-//         <FlatList
-//         data={slider}
-//         horizontal
-//         pagingEnabled
-//         showsHorizontalScrollIndicator={false}
-//         renderItem={({ item }) => (
-//         <View style={{ width: width }}>
-//             <Image
-//             source={{ uri: image_url(`assets/uploads/promo/${item.img_url}`, "backend") }}
-//             style={{ width: "100%", height: 200, resizeMode: "contain" }}
-//             />
-//         </View>
-//         )}
-
-//         keyExtractor={(item) => item.id}
-//         />
-//     </>
-//   )
-// }
 export default function Info() {
   const scrollRef = useRef<ScrollView>(null);
   const [index, setIndex] = useState(0);
@@ -66,7 +34,19 @@ export default function Info() {
     }, 3000);
 
     return () => clearInterval(timer);
-  }, [index]);
+  }, [index, slider]);
+
+  const onMomentumScrollEnd = (e: any) => {
+    const current = Math.round(e.nativeEvent.contentOffset.x / slideWidth);
+
+    if (current === slider.length) {
+      // jika di duplicate slide terakhir, scroll ke awal tanpa animasi
+      scrollRef.current?.scrollTo({ x: 0, animated: false });
+      setIndex(0);
+    } else {
+      setIndex(current);
+    }
+  };
 
   return (
     <View>
@@ -75,12 +55,7 @@ export default function Info() {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        onMomentumScrollEnd={(e) => {
-          const current = Math.round(
-            e.nativeEvent.contentOffset.x / width
-          );
-          setIndex(current);
-        }}
+        onMomentumScrollEnd={onMomentumScrollEnd}
       >
         {slider?.map((item: any, i: number) => (
           <View key={i} style={{ width: width - 40 }}>
@@ -124,12 +99,12 @@ const styles = StyleSheet.create({
     width: 8,
     height: 8,
     borderRadius: 4,
-    backgroundColor: "#ccc",
+    backgroundColor: "#f66a13",
     marginHorizontal: 4,
   },
   activeDot: {
-    backgroundColor: "#00B68F",
-    width: 16,
+    backgroundColor: "#ff0000",
+    width: 8,
   },
 });
 
