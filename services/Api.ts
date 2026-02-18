@@ -51,17 +51,14 @@ export async function apiFetch<T = any>(
     const res = await fetch(`${config.api_url}/${url}`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: JSON.stringify(data),
+      body: new URLSearchParams(data).toString(),
     });
 
     const json = await res.json(); // ⬅️ SEKALI SAJA
 
-    if (!res.ok) {
-      throw new Error(json?.message || res.statusText);
-    }
-
+    console.log('success fetch:', json)
     return json as T;
   } catch (error: any) {
     console.error("apiFetch error:", error.message);
