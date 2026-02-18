@@ -25,13 +25,13 @@ const Signup = () => {
         alert("Anda harus menyetujui syarat & ketentuan");
         return;
       }
-      router.push("/login");
+      router.push("/pages/login");
   };
 
   return (
     <View style={styles.container}>
         <View style={{ width: "100%", height: 200, }}>
-            <ImageBackground source={require("../assets/images/login/bg-header.png")} style={styles.headerImage}>
+            <ImageBackground source={require("../../assets/images/login/bg-header.png")} style={styles.headerImage}>
                 <TouchableOpacity onPress={() => router.back()} style={styles.buttonBack}>
                     <Ionicons name="arrow-back" size={24} color="black" />
                 </TouchableOpacity>
@@ -131,7 +131,7 @@ const Signup = () => {
                     Sudah punya akun?{" "}
                     <Text
                     style={styles.signup}
-                    onPress={() => router.push("/login")}
+                    onPress={() => router.push("/pages/login")}
                     >
                     Login
                     </Text>{" "}
@@ -140,7 +140,7 @@ const Signup = () => {
             </View>
         </View>
         <View style={{ width: "100%", height: 100, position: "absolute", bottom: 0 }}>
-            <ImageBackground source={require("../assets/images/login/bg-footer.png")} style={styles.footerImage}>
+            <ImageBackground source={require("../../assets/images/login/bg-footer.png")} style={styles.footerImage}>
             </ImageBackground>
         </View>
     </View>

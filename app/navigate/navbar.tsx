@@ -27,20 +27,20 @@ const Navbar = () => {
 
     const icon = {
       home: {
-        active: require("../../../assets/images/icon/home-icon-fill.png"),
-        inactive: require("../../../assets/images/icon/home-icon.png"),
+        active: require("../../assets/images/icon/home-icon-fill.png"),
+        inactive: require("../../assets/images/icon/home-icon.png"),
       },
       riwayat: {
-        active: require("../../../assets/images/icon/history-icon-fill.png"),
-        inactive: require("../../../assets/images/icon/history-icon.png"),
+        active: require("../../assets/images/icon/history-icon-fill.png"),
+        inactive: require("../../assets/images/icon/history-icon.png"),
       },
       pesan: {
-        active: require("../../../assets/images/icon/notif-icon-fill.png"),
-        inactive: require("../../../assets/images/icon/notif-icon.png"),
+        active: require("../../assets/images/icon/notif-icon-fill.png"),
+        inactive: require("../../assets/images/icon/notif-icon.png"),
       },
       pengaturan: {
-        active: require("../../../assets/images/icon/setting-icon-fill.png"),
-        inactive: require("../../../assets/images/icon/setting-icon.png"),
+        active: require("../../assets/images/icon/setting-icon-fill.png"),
+        inactive: require("../../assets/images/icon/setting-icon.png"),
       },
     }
   return (
@@ -64,14 +64,14 @@ const Navbar = () => {
       <TouchableOpacity
         style={styles.navItem}
         onPress={() => {
-          handleRoute("/about");
+          handleRoute("/pages/riwayat");
         }}
       >
-        <Image source={pathName === '/about' ? icon.riwayat.active : icon.riwayat.inactive} style={styles.icon} />
+        <Image source={pathName === '/pages/riwayat' ? icon.riwayat.active : icon.riwayat.inactive} style={styles.icon} />
         <Text
           style={[
             styles.label,
-            pathName === '/about' && styles.activeLabel,
+            pathName === '/pages/riwayat' && styles.activeLabel,
           ]}
         >
           Riwayat
@@ -87,17 +87,17 @@ const Navbar = () => {
           borderRadius: 50,
         }}
       >
-        <Image source={require("../../../assets/images/icon/reservation-icon.png")} style={{ width: 40, height: 40, resizeMode: "contain" }} />
+        <Image source={require("../../assets/images/icon/reservation-icon.png")} style={{ width: 40, height: 40, resizeMode: "contain" }} />
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.navItem}
-        onPress={() => handleRoute("/pesan")}
+        onPress={() => handleRoute("/pages/pesan")}
       >
-        <Image source={pathName === '/pesan' ? icon.pesan.active : icon.pesan.inactive} style={styles.icon} />
+        <Image source={pathName === '/pages/pesan' ? icon.pesan.active : icon.pesan.inactive} style={styles.icon} />
         <Text
           style={[
             styles.label,
-            pathName === '/pesan' && styles.activeLabel,
+            pathName === '/pages/pesan' && styles.activeLabel,
           ]}
         >
           Pesan
@@ -105,13 +105,13 @@ const Navbar = () => {
       </TouchableOpacity>
       <TouchableOpacity
         style={styles.navItem}
-        onPress={() => handleRoute("/pengaturan")}
+        onPress={() => handleRoute("/pages/pengaturan")}
       >
-        <Image source={pathName === '/pengaturan' ? icon.pengaturan.active : icon.pengaturan.inactive} style={styles.icon} />
+        <Image source={pathName === '/pages/pengaturan' ? icon.pengaturan.active : icon.pengaturan.inactive} style={styles.icon} />
         <Text
           style={[
             styles.label,
-            pathName === '/pengaturan' && styles.activeLabel,
+            pathName === '/pages/pengaturan' && styles.activeLabel,
           ]}
         >
           Pengaturan

@@ -1,17 +1,28 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
+
 import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function login() {
     const [phone, setPhone] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(true);
+    const { login } = useAuth();
 
 
-    const handleLogin = () => {
-        console.log("Phone:", phone);
-        console.log("Password:", password);
+    const handleLogin = async () => {
+        try {
+            const res = await login(phone, password);
+            if (res?.errors) {
+                alert(res?.errors?.phone ? res?.errors?.phone : res?.errors?.password);
+            } else {
+                router.replace("/");
+            }
+        } catch (error) {
+            console.log('login error: ', error);
+        }
     };
 
     const handleGoogleLogin = () => {
@@ -21,7 +32,7 @@ export default function login() {
   return (
     <View style={styles.container}>
         <View style={{ width: "100%", height: 200, }}>
-            <ImageBackground source={require("../assets/images/login/bg-header.png")} style={styles.headerImage}>
+            <ImageBackground source={require("../../assets/images/login/bg-header.png")} style={styles.headerImage}>
                 <TouchableOpacity onPress={() => router.back()} style={styles.buttonBack}>
                     <Ionicons name="arrow-back" size={24} color="black" />
                 </TouchableOpacity>
@@ -98,7 +109,7 @@ export default function login() {
                     Belum punya akun?{" "}
                     <Text
                     style={styles.signup}
-                    onPress={() => router.push("/signup")}
+                    onPress={() => router.push("/pages/signup")}
                     >
                     Sign Up
                     </Text>{" "}
@@ -107,7 +118,7 @@ export default function login() {
             </View>
         </View>
         <View style={{ width: "100%", height: 100, position: "absolute", bottom: 0 }}>
-            <ImageBackground source={require("../assets/images/login/bg-footer.png")} style={styles.footerImage}>
+            <ImageBackground source={require("../../assets/images/login/bg-footer.png")} style={styles.footerImage}>
             </ImageBackground>
         </View>
     </View>

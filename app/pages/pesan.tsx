@@ -1,15 +1,16 @@
 import React from 'react'
 import { Text, View } from 'react-native'
-import Navbar from './components/route/navbar'
+import Navbar from '../navigate/navbar'
 
 
-const pengaturan = () => {
+
+const Pesan = () => {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>pengaturan</Text>
+      <Text>Pesan</Text>
       <Navbar />
     </View>
   )
 }
 
-export default pengaturan
+export default Pesan

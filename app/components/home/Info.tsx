@@ -1,4 +1,5 @@
-import { apiFetch, image_url } from '@/app/core/Api';
+
+import { apiFetch, image_url } from '@/services/Api';
 import { Image } from 'expo-image';
 import React, { useEffect, useRef, useState } from 'react';
 import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
