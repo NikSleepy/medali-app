@@ -1,5 +1,6 @@
 import React from 'react'
-import { Image, Pressable, Text, View } from 'react-native'
+import { Image, Pressable, View } from 'react-native'
+import AppTextBold from '../font/appTextBold'
 
 const Menu = () => {
     const data = [
@@ -35,7 +36,7 @@ const Menu = () => {
             <View style={{ backgroundColor: "#f40009", padding: 10, borderRadius: 40}}>
                 <Image source={item.image} style={{ width: 35, height: 35, resizeMode: "contain" }} />
             </View>
-            <Text style={{ fontSize: 15, color: "#030303ff", fontWeight: "bold", textAlign: "center", paddingVertical: 5}}>{item.name1}{'\n'}{item.name2}</Text>
+            <AppTextBold style={{ fontSize: 15, color: "#030303ff", textAlign: "center", paddingVertical: 5}}>{item.name1}{'\n'}{item.name2}</AppTextBold>
         </Pressable>
     ))}
     </>

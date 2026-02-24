@@ -58,7 +58,7 @@ export async function apiFetch<T = any>(
 
     const json = await res.json(); // ⬅️ SEKALI SAJA
 
-    console.log('success fetch:', json)
+    // console.log('success fetch:', json)
     return json as T;
   } catch (error: any) {
     console.error("apiFetch error:", error.message);
