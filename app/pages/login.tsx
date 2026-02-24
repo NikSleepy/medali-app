@@ -1,6 +1,7 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 
+import { useAuthStore } from '@/stores/auth.store';
 import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useAuth } from '../../hooks/useAuth';
@@ -10,6 +11,7 @@ export default function login() {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(true);
     const { login } = useAuth();
+    const { setLogin } = useAuthStore();
 
 
     const handleLogin = async () => {
@@ -18,6 +20,7 @@ export default function login() {
             if (res?.errors) {
                 alert(res?.errors?.phone ? res?.errors?.phone : res?.errors?.password);
             } else {
+                setLogin(true);
                 router.replace("/");
             }
         } catch (error) {

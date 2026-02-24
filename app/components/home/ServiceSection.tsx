@@ -1,16 +1,18 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
+import AppText from "../font/appText";
+import AppTextBold from "../font/appTextBold";
 
 export default function ServiceSection() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
+      <AppTextBold style={styles.title}>
         Kami Memenuhi Harapan Anda
-      </Text>
+      </AppTextBold>
 
-      <Text style={styles.subtitle}>
+      <AppText style={styles.subtitle}>
         Kami di sini agar Anda dapat menemukan keamanan,
         kenyamanan, dan kemudahan maksimal!
-      </Text>
+      </AppText>
 
       <View style={styles.listService}>
         {/* ITEM 1 */}
@@ -54,8 +56,8 @@ function ServiceItem({ icon, title, desc }: any) {
         </View>
 
         <View style={styles.serviceText}>
-          <Text style={styles.serviceTitle}>{title}</Text>
-          <Text style={styles.serviceDesc}>{desc}</Text>
+          <AppTextBold style={styles.serviceTitle}>{title}</AppTextBold>
+          <AppText style={styles.serviceDesc}>{desc}</AppText>
         </View>
       </View>
     </View>
@@ -69,12 +71,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   title: {
-    fontSize: 25,
-    fontWeight: "bold",
+    fontSize: 18,
     textAlign: "center",
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 13,
     fontWeight: "600",
     color: "red",
     textAlign: "center",
@@ -109,13 +110,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   serviceTitle: {
-    fontSize: 16,
-    fontWeight: "bold",
+    fontSize: 15,
     color: "#000000ff",
-    marginBottom: 4,
   },
   serviceDesc: {
-    fontSize: 16,
+    fontSize: 13,
     color: "#000000ff",
   },
 });

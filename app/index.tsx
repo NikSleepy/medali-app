@@ -3,8 +3,9 @@ import { ImageBackground } from "expo-image";
 import { router } from "expo-router";
 import * as SecureStore from 'expo-secure-store';
 import { useEffect, useState } from "react";
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 import AppText from "./components/font/appText";
+import AppTextBold from "./components/font/appTextBold";
 import Info from "./components/home/Info";
 import Menu from "./components/home/Menu";
 import ServiceSection from "./components/home/ServiceSection";
@@ -45,9 +46,9 @@ export default function Index() {
               onPress={() => router.push('/pages/login')}
               style={styles.buttonSignIn}
             >
-              <Text style={{ color: '#030303ff', fontSize: 16 }}>
+              <AppText style={{ color: '#030303ff', fontSize: 16 }}>
                 Sign In
-              </Text>
+              </AppText>
             </TouchableOpacity>
             )}
           </View>
@@ -58,7 +59,7 @@ export default function Index() {
       <View style={styles.menu}>
         <View style={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center", gap: 20, }}>
           <Image source={require("../assets/images/icon/menu-icon.png")} style={{ width: 20, height: 20, resizeMode: "contain" }} />
-          <Text style={{ fontSize: 20, color: "#030303ff", fontWeight: "bold"}}>Menu</Text>
+          <AppTextBold style={{ fontSize: 20, color: "#030303ff"}}>Menu</AppTextBold>
         </View>
         
         <View style={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center", gap: 15,  }}>
@@ -70,7 +71,7 @@ export default function Index() {
       <View style={styles.info}>
         <View style={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center", gap: 20, }}>
           <Image source={require("../assets/images/icon/info-news-icon.png")} style={{ width: 20, height: 20, resizeMode: "contain" }} />
-          <Text style={{ fontSize: 20, color: "#030303ff", fontWeight: "bold"}}>Info Terbaru</Text>
+          <AppTextBold style={{ fontSize: 20, color: "#030303ff"}}>Info Terbaru</AppTextBold>
         </View>
 
         <View style={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center", gap: 15,  }}>
