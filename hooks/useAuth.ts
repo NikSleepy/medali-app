@@ -17,7 +17,6 @@ export function useAuth() {
             if (res?.errors) {
                 console.log("login error: ", res?.errors);
             } else {
-                console.log('masuk store')
                 await SecureStore.setItemAsync('member', JSON.stringify(res?.data?.session));
             }
             setLoading(false);
